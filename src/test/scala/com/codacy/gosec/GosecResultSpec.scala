@@ -1,6 +1,7 @@
 package com.codacy.gosec
 
 import java.nio.file.Paths
+
 import com.codacy.plugins.api.results
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers

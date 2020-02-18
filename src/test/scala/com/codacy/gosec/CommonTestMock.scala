@@ -2,8 +2,8 @@ package com.codacy.gosec
 
 import java.nio.file.{Path, Paths}
 
-import com.codacy.analysis.core.model.{FullLocation, Issue}
 import com.codacy.analysis.core.model.IssuesAnalysis.FileResults
+import com.codacy.analysis.core.model.{FullLocation, Issue}
 import com.codacy.plugins.api.results
 
 object CommonTestMock {

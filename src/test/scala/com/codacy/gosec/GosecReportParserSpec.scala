@@ -5,7 +5,6 @@ import org.scalatest.matchers.must.Matchers
 
 import scala.util.Try
 
-
 class GosecReportParserSpec extends AnyFlatSpec with Matchers {
   def assertSuccess(result: Try[GosecResult], expectedResult: GosecResult) = {
     assert(result.isSuccess)
