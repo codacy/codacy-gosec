@@ -22,8 +22,7 @@ class GosecSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "fail the parse when json with missing information is given" in {
-    val lines = Seq(
-      s"""{
+    val lines = Seq(s"""{
          |    "Issues": [
          |        {
          |            "severity": "LOW"

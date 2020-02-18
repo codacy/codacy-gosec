@@ -17,10 +17,8 @@ lazy val root = (project in file("."))
       "io.circe" %% "circe-core" % circeVersion,
       "io.circe" %% "circe-generic" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
-
       "org.scalatest" %% "scalatest" % "3.1.0" % Test
     ),
-
     graalVMNativeImageGraalVersion := Some(graalVersion),
     containerBuildImage := Some(s"oracle/graalvm-ce:$graalVersion"),
     graalVMNativeImageOptions ++= Seq(

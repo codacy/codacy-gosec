@@ -7,7 +7,15 @@ import com.codacy.plugins.api.results
 
 case class GosecResult(issues: Seq[GosecIssue])
 
-case class GosecIssue(severity: String, confidence: String, ruleId: String, details: String, file: Path, line: Int, column: Int) {
+case class GosecIssue(
+    severity: String,
+    confidence: String,
+    ruleId: String,
+    details: String,
+    file: Path,
+    line: Int,
+    column: Int
+) {
 
   def toCodacyIssue: Issue = {
     Issue(
@@ -30,4 +38,3 @@ case class GosecIssue(severity: String, confidence: String, ruleId: String, deta
   private def convertCategory(checkName: String): Option[results.Pattern.Category] =
     None
 }
-

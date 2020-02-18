@@ -7,6 +7,7 @@ import com.codacy.tool.ClientSideToolEngine
 import scala.util.{Failure, Success, Try}
 
 object Gosec extends ClientSideToolEngine(toolName = "gosec") {
+
   def gosecReportToFileResults(report: GosecResult): Try[Set[FileResults]] = {
     Try {
       report.issues
