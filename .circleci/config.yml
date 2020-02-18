@@ -43,6 +43,8 @@ workflows:
           cmd: |
             sbt "graalvm-native-image:packageBin"
             sbt "assembly"
+
+            mkdir -p ~/workdir/artifacts/
             mv target/scala-2.13/codacy-gosec-assembly-$(cat .version).jar ~/workdir/artifacts/codacy-gosec-$(cat .version).jar
             mv target/graalvm-native-image/codacy-gosec ~/workdir/artifacts/codacy-gosec-$(cat .version)
           requires:

@@ -9,7 +9,6 @@ lazy val root = (project in file("."))
     name := "codacy-gosec",
     organization := "com.codacy",
     organizationName := "codacy",
-    version := "0.1",
     scalaVersion := scalaVersionNumber,
     test in assembly := {},
     libraryDependencies ++= Seq(
