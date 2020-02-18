@@ -1,11 +1,6 @@
 
 val circeVersion = "0.12.3"
 
-lazy val circe = List(
-  "io.circe" %% "circe-core" % circeVersion,
-  "io.circe" %% "circe-generic" % circeVersion,
-  "io.circe" %% "circe-parser" % circeVersion)
-
 lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .settings(
@@ -18,6 +13,10 @@ lazy val root = (project in file("."))
     test in assembly := {},
     libraryDependencies ++= Seq(
       "com.codacy" %% "codacy-analysis-cli-model" % "2.2.0",
+      "io.circe" %% "circe-core" % circeVersion,
+      "io.circe" %% "circe-generic" % circeVersion,
+      "io.circe" %% "circe-parser" % circeVersion,
+
       "org.scalatest" %% "scalatest" % "3.1.0" % Test
-    ) ++ circe
+    )
   )
