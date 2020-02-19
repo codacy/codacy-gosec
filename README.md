@@ -2,6 +2,55 @@
 
 A standalone tool that converts gosec results to Codacy's format. It allows the integration of gosec into your Codacy workflow.
 
+## How it works
+
+1. The tool receives as input the gosec result from stdin.
+
+1. Converts gosec result into Codacy's format
+
+1. Prints Codacy's format to stdout 
+
+## Usage
+
+The upload of results for a commit is done in two steps:
+ - uploading all results
+ - telling Codacy that it can run the rest of the analysis
+
+For this a [project API](https://support.codacy.com/hc/en-us/articles/207994675-Project-API) token is required.
+
+```bash
+export PROJECT_TOKEN="YOUR-TOKEN"
+export COMMIT="COMMIT-UUID"
+
+gosec -fmt json -log log.txt ./... | \
+./codacy-gosec-"<version>" | \
+curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
+    -H "Content-type: application/json" -d @- \
+    "https://api.codacy.com/2.0/commit/$COMMIT/issuesRemoteResults"
+
+curl -XPOST -L -H 'project_token: $PROJECT_TOKEN' \
+	-H "Content-type: application/json" \
+	"https://api.codacy.com/2.0/commit/$COMMIT/resultsFinal"
+```
+
+For self-hosted installations:
+
+```bash
+export PROJECT_TOKEN="YOUR-TOKEN"
+export COMMIT="COMMIT-UUID"
+export CODACY_URL="CODACY-INSTALLATION-URL"
+
+gosec -fmt json -log log.txt ./... | \
+./codacy-gosec-"<version>" | \
+curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
+    -H "Content-type: application/json" -d @- \
+    "$CODACY_URL/2.0/commit/$COMMIT/issuesRemoteResults"
+
+curl -XPOST -L -H 'project_token: $PROJECT_TOKEN' \
+	-H "Content-type: application/json" \
+	"$CODACY_URL/2.0/commit/$COMMIT/resultsFinal"
+```
+
 ## Building
 
 #### Compile
