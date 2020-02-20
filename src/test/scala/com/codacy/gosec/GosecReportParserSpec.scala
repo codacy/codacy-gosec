@@ -6,12 +6,12 @@ import org.scalatest.wordspec.AnyWordSpec
 class GosecReportParserSpec extends AnyWordSpec with Matchers {
 
   def assertSuccess(result: Either[io.circe.Error, GosecResult], expectedResult: GosecResult) = {
-    result.isRight mustBe true
+    result mustBe Symbol("right")
     result.foreach(x => x mustEqual expectedResult)
   }
 
   def assertFailure(result: Either[io.circe.Error, GosecResult]) = {
-    result.isLeft mustBe true
+    result mustBe Symbol("left")
   }
 
   "Gosec Reporter parser" should {
