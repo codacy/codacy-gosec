@@ -1,20 +1,25 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4895f1eeb40c4a348ad5f8d749a276be)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-gosec&utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/4895f1eeb40c4a348ad5f8d749a276be)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-gosec&utm_campaign=Badge_Coverage)
+
 # Codacy gosec
 
 A standalone tool that converts gosec results to Codacy's format. It allows the integration of gosec into your Codacy workflow.
 
 ## How it works
 
-1. The tool receives as input the gosec result from stdin.
+1.  The tool receives as input the gosec result from stdin.
 
-1. Converts gosec result into Codacy's format
+2.  Converts gosec result into Codacy's format
 
-1. Prints Codacy's format to stdout 
+3.  Prints Codacy's format to stdout 
 
 ## Usage
 
 The upload of results for a commit is done in two steps:
- - uploading all results
- - telling Codacy that it can run the rest of the analysis
+
+-   uploading all results
+-   telling Codacy that it can run the rest of the analysis
 
 For this a [project API](https://support.codacy.com/hc/en-us/articles/207994675-Project-API) token is required.
 
@@ -55,21 +60,15 @@ curl -XPOST -L -H 'project_token: $PROJECT_TOKEN' \
 
 #### Compile
 
-```
-sbt compile
-```
+    sbt compile
 
 #### Format
 
-```
-sbt ";scalafmt;test:scalafmt;sbt:scalafmt"
-```
+    sbt ";scalafmt;test:scalafmt;sbt:scalafmt"
 
 #### Tests
 
-```
-sbt test
-```
+    sbt test
 
 ##### Build native image (requires docker)
 
@@ -77,9 +76,7 @@ sbt test
 
 #### Build fat-jar
 
-```
-sbt assembly
-```
+    sbt assembly
 
 ## What is Codacy?
 
@@ -87,11 +84,11 @@ sbt assembly
 
 ### Among Codacy’s features:
 
-- Identify new Static Analysis issues
-- Commit and Pull Request Analysis with GitHub, BitBucket/Stash, GitLab (and also direct git repositories)
-- Auto-comments on Commits and Pull Requests
-- Integrations with Slack, HipChat, Jira, YouTrack
-- Track issues Code Style, Security, Error Proneness, Performance, Unused Code and other categories
+-   Identify new Static Analysis issues
+-   Commit and Pull Request Analysis with GitHub, BitBucket/Stash, GitLab (and also direct git repositories)
+-   Auto-comments on Commits and Pull Requests
+-   Integrations with Slack, HipChat, Jira, YouTrack
+-   Track issues Code Style, Security, Error Proneness, Performance, Unused Code and other categories
 
 Codacy also helps keep track of Code Coverage, Code Duplication, and Code Complexity.
 
