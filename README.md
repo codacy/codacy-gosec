@@ -8,7 +8,7 @@ A standalone tool that converts gosec results to Codacy's format. It allows the 
 
 ## How it works
 
-1.  The tool receives as input the gosec result from stdin.
+1.  The tool receives as input the gosec result from stdin. The gosec result must be in JSON format.
 
 2.  Converts gosec result into Codacy's format
 
