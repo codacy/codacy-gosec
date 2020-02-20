@@ -26,7 +26,7 @@ object CommonTestMock {
         patternId,
         details,
         filePath,
-        GosecReportParser.parseLine(codeLine),
+        GosecReportParser.parseLine(codeLine).getOrElse(throw new Exception("error parsing code line")),
         codeColumn.toInt
       )
     )
@@ -41,7 +41,10 @@ object CommonTestMock {
         Issue.Message(details),
         results.Result.Level.Info,
         None,
-        FullLocation(GosecReportParser.parseLine(codeLine), codeColumn.toInt)
+        FullLocation(
+          GosecReportParser.parseLine(codeLine).getOrElse(throw new Exception("error parsing code line")),
+          codeColumn.toInt
+        )
       )
     )
   )

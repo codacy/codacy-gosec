@@ -31,8 +31,8 @@ object Gosec extends ClientSideToolEngine(toolName = "gosec") {
 
   override def convert(lines: Seq[String]): IssuesAnalysis = {
     GosecReportParser.fromJson(lines) match {
-      case Success(report) => gosecReportToIssuesAnalysis(report)
-      case Failure(err) => IssuesAnalysis.Failure(err.getMessage)
+      case Right(report) => gosecReportToIssuesAnalysis(report)
+      case Left(err) => IssuesAnalysis.Failure(err.getMessage)
     }
   }
 }

@@ -3,9 +3,7 @@ package com.codacy.gosec
 import java.nio.file.Paths
 
 import io.circe.parser.decode
-import io.circe.{Decoder, HCursor}
-
-import scala.util.Try
+import io.circe.{Decoder, DecodingFailure, HCursor}
 
 object GosecReportParser {
   private[GosecReportParser] implicit val gosecResultDecoder: Decoder[GosecResult] = (c: HCursor) =>
@@ -20,26 +18,25 @@ object GosecReportParser {
       ruleId <- c.downField("rule_id").as[String]
       details <- c.downField("details").as[String]
       file <- c.downField("file").as[String]
-      line <- c.downField("line").as[String]
+
+      lineCursor = c.downField("line")
+      lineString <- lineCursor.as[String]
+      line <- parseLine(lineString).toRight(DecodingFailure("invalid line", lineCursor.history))
+
       column <- c.downField("column").as[Int]
 
-      lineAsInt = parseLine(line)
-    } yield GosecIssue(severity, confidence, ruleId, details, Paths.get(file), lineAsInt, column)
+    } yield GosecIssue(severity, confidence, ruleId, details, Paths.get(file), line, column)
 
-  def fromJson(lines: Seq[String]): Try[GosecResult] = Try {
+  def fromJson(lines: Seq[String]): Either[io.circe.Error, GosecResult] = {
     val entireJson = lines.mkString("")
 
-    decode[GosecResult](entireJson) match {
-      case Right(res) => res
-      case Left(ex) => throw ex
-    }
+    decode[GosecResult](entireJson)
   }
 
-  def parseLine(line: String): Int = {
+  def parseLine(line: String): Option[Int] = {
     line
       .split("-")
       .headOption
-      .getOrElse(throw new RuntimeException("Line is empty"))
-      .toInt
+      .flatMap(s => s.toIntOption)
   }
 }
