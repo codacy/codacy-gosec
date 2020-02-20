@@ -2,6 +2,7 @@ package com.codacy.gosec
 
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
+import org.scalatest.TryValues._
 
 import scala.util.Try
 
@@ -9,7 +10,7 @@ class GosecReportParserSpec extends AnyFlatSpec with Matchers {
 
   def assertSuccess(result: Try[GosecResult], expectedResult: GosecResult) = {
     assert(result.isSuccess)
-    assert(result.getOrElse(null) == expectedResult)
+    assert(result.success.value == expectedResult)
   }
 
   "Gosec Reporter parser" should "parse the json correctly" in {
