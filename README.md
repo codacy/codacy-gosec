@@ -1,5 +1,4 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4895f1eeb40c4a348ad5f8d749a276be)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-gosec&utm_campaign=Badge_Grade)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/4895f1eeb40c4a348ad5f8d749a276be)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=codacy/codacy-gosec&utm_campaign=Badge_Coverage)
 
 # Codacy gosec
