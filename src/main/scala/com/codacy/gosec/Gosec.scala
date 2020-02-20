@@ -8,7 +8,7 @@ import scala.util.{Failure, Success, Try}
 
 object Gosec extends ClientSideToolEngine(toolName = "gosec") {
 
-  def gosecReportToFileResults(report: GosecResult): Try[Set[FileResults]] = {
+  private def gosecReportToFileResults(report: GosecResult): Try[Set[FileResults]] = {
     Try {
       report.issues
         .groupBy(_.file)
@@ -21,7 +21,7 @@ object Gosec extends ClientSideToolEngine(toolName = "gosec") {
     }
   }
 
-  def gosecReportToIssuesAnalysis(report: GosecResult): IssuesAnalysis = {
+  private def gosecReportToIssuesAnalysis(report: GosecResult): IssuesAnalysis = {
     gosecReportToFileResults(report) match {
       case Success(result) => IssuesAnalysis.Success(result)
       case Failure(exception) => IssuesAnalysis.Failure(exception.getMessage)
