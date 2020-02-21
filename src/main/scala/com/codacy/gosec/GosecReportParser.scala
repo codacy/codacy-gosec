@@ -27,7 +27,7 @@ object GosecReportParser {
 
       column <- c.downField("column").as[Int]
 
-    } yield GosecIssue(severity, confidence, ruleId, details, relativePathTo(file), line, column)
+    } yield GosecIssue(severity, confidence, ruleId, details, relativizeToWorkdir(file), line, column)
 
   def fromJson(lines: Seq[String]): Either[io.circe.Error, GosecResult] = {
     val entireJson = lines.mkString("")
@@ -42,7 +42,7 @@ object GosecReportParser {
       .flatMap(s => s.toIntOption)
   }
 
-  private def relativePathTo(filepath: String): Path = {
+  private def relativizeToWorkdir(filepath: String): Path = {
     val currentPath = Paths.get(System.getProperty("user.dir"))
     Try(currentPath.relativize(Paths.get(filepath))) match {
       case Success(path) => path
