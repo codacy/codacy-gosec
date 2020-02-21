@@ -13,6 +13,8 @@ A standalone tool that converts gosec results to Codacy's format. It allows the 
 
 3.  Prints Codacy's format to stdout 
 
+> NOTE: the tool must be run in the project root folder.
+
 ## Usage
 
 The upload of results for a commit is done in two steps:

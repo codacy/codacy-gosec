@@ -1,9 +1,11 @@
 package com.codacy.gosec
 
-import java.nio.file.Paths
+import java.nio.file.{Path, Paths}
 
 import io.circe.parser.decode
 import io.circe.{Decoder, DecodingFailure, HCursor}
+
+import scala.util.{Failure, Success, Try}
 
 object GosecReportParser {
   private[GosecReportParser] implicit val gosecResultDecoder: Decoder[GosecResult] = (c: HCursor) =>
@@ -25,7 +27,7 @@ object GosecReportParser {
 
       column <- c.downField("column").as[Int]
 
-    } yield GosecIssue(severity, confidence, ruleId, details, Paths.get(file), line, column)
+    } yield GosecIssue(severity, confidence, ruleId, details, relativePathTo(file), line, column)
 
   def fromJson(lines: Seq[String]): Either[io.circe.Error, GosecResult] = {
     val entireJson = lines.mkString("")
@@ -38,5 +40,13 @@ object GosecReportParser {
       .split("-")
       .headOption
       .flatMap(s => s.toIntOption)
+  }
+
+  private def relativePathTo(filepath: String): Path = {
+    val currentPath = Paths.get(System.getProperty("user.dir"))
+    Try(currentPath.relativize(Paths.get(filepath))) match {
+      case Success(path) => path
+      case Failure(_) => Paths.get(filepath)
+    }
   }
 }
