@@ -13,6 +13,8 @@ A standalone tool that converts gosec results to Codacy's format. It allows the 
 
 3.  Prints Codacy's format to stdout 
 
+> NOTE: the tool must be run in the project root folder.
+
 ## Usage
 
 The upload of results for a commit is done in two steps:
@@ -32,7 +34,7 @@ curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
     -H "Content-type: application/json" -d @- \
     "https://api.codacy.com/2.0/commit/$COMMIT/issuesRemoteResults"
 
-curl -XPOST -L -H 'project_token: $PROJECT_TOKEN' \
+curl -XPOST -L -H "project_token: $PROJECT_TOKEN" \
 	-H "Content-type: application/json" \
 	"https://api.codacy.com/2.0/commit/$COMMIT/resultsFinal"
 ```
@@ -50,7 +52,7 @@ curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
     -H "Content-type: application/json" -d @- \
     "$CODACY_URL/2.0/commit/$COMMIT/issuesRemoteResults"
 
-curl -XPOST -L -H 'project_token: $PROJECT_TOKEN' \
+curl -XPOST -L -H "project_token: $PROJECT_TOKEN" \
 	-H "Content-type: application/json" \
 	"$CODACY_URL/2.0/commit/$COMMIT/resultsFinal"
 ```
