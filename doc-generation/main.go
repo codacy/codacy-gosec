@@ -2,13 +2,16 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"path"
+	"sort"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"golang.org/x/mod/modfile"
 
 	"github.com/securego/gosec/v2/rules"
 )
@@ -26,12 +29,17 @@ func main() {
 }
 
 func run() int {
-	rulesList := rules.Generate()
+	rulesList := listGosecRules()
 
 	codacyPatterns := toCodacyPatterns(rulesList)
 	codacyPatternsDescription := toCodacyPatternsDescription(rulesList)
 
-	err := createPatternsJSONFile(codacyPatterns, "")
+	version, err := gosecVersion()
+	if err != nil {
+		return 1
+	}
+
+	err = createPatternsJSONFile(codacyPatterns, version)
 	if err != nil {
 		return 1
 	}
@@ -44,7 +52,39 @@ func run() int {
 	return 0
 }
 
-func toCodacyPatterns(rules rules.RuleList) []codacy.Pattern {
+func gosecVersion() (string, error) {
+	goModFilename := "go.mod"
+	gosecDependency := "github.com/securego/gosec/v2"
+
+	goMod, err := ioutil.ReadFile(goModFilename)
+	if err != nil {
+		return "", err
+	}
+
+	file, err := modfile.Parse(goModFilename, goMod, nil)
+	for _, r := range file.Require {
+		if r.Mod.Path == gosecDependency {
+			return r.Mod.Version, nil
+		}
+	}
+	return "", errors.New("Gosec not found")
+}
+
+func listGosecRules() []rules.RuleDefinition {
+	rulesMap := rules.Generate()
+
+	var rulesList []rules.RuleDefinition
+	for _, ruleDefinition := range rulesMap {
+		rulesList = append(rulesList, ruleDefinition)
+	}
+
+	sort.Slice(rulesList, func(i, j int) bool {
+		return rulesList[i].ID < rulesList[j].ID
+	})
+	return rulesList
+}
+
+func toCodacyPatterns(rules []rules.RuleDefinition) []codacy.Pattern {
 	codacyPatterns := []codacy.Pattern{}
 
 	for _, value := range rules {
@@ -61,7 +101,7 @@ func patternExtendedDescription(id string, description string) string {
 	return "## " + id + "\n" + description
 }
 
-func toCodacyPatternsDescription(rules rules.RuleList) []codacy.PatternDescription {
+func toCodacyPatternsDescription(rules []rules.RuleDefinition) []codacy.PatternDescription {
 	codacyPatternsDescription := []codacy.PatternDescription{}
 
 	for _, value := range rules {
