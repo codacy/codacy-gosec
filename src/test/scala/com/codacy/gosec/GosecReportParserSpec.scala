@@ -17,27 +17,27 @@ class GosecReportParserSpec extends AnyWordSpec with Matchers {
   "Gosec Reporter parser" should {
     "parse the json correctly" in {
       val resultLines = CommonTestMock.resultJsonText.split("\n").to(Seq)
-      val result = GosecReportParser.fromJson(resultLines)
+      val result = GosecReportParser.fromJson(resultLines, CommonTestMock.currentDir)
       assertSuccess(result, CommonTestMock.resultAsGosecResult)
     }
 
     "not fail when single line string is parsed" in {
-      val result = GosecReportParser.fromJson(Seq(CommonTestMock.resultJsonText))
+      val result = GosecReportParser.fromJson(Seq(CommonTestMock.resultJsonText), CommonTestMock.currentDir)
       assertSuccess(result, CommonTestMock.resultAsGosecResult)
     }
 
     "fail parsing on invalid json" in {
-      val result = GosecReportParser.fromJson(Seq("""{"invalid_json": "}"""))
+      val result = GosecReportParser.fromJson(Seq("""{"invalid_json": "}"""), CommonTestMock.currentDir)
       assertFailure(result)
     }
 
     "fail parsing on no lines" in {
-      val result = GosecReportParser.fromJson(Seq.empty)
+      val result = GosecReportParser.fromJson(Seq.empty, CommonTestMock.currentDir)
       assertFailure(result)
     }
 
     "fail when line not defined" in {
-      val result = GosecReportParser.fromJson(Seq(CommonTestMock.generateResultJsonText(line = "")))
+      val result = GosecReportParser.fromJson(Seq(CommonTestMock.generateResultJsonText(line = "")), CommonTestMock.currentDir)
       assertFailure(result)
     }
 

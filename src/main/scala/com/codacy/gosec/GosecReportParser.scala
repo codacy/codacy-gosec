@@ -29,10 +29,18 @@ object GosecReportParser {
 
     } yield GosecIssue(severity, confidence, ruleId, details, relativizeToWorkdir(file), line, column)
 
-  def fromJson(lines: Seq[String]): Either[io.circe.Error, GosecResult] = {
+  def fromJson(lines: Seq[String], relativizeTo: Path): Either[io.circe.Error, GosecResult] = {
     val entireJson = lines.mkString("")
 
-    decode[GosecResult](entireJson)
+    val resultEither = decode[GosecResult](entireJson)
+
+    resultEither.map { gosecResult =>
+      val issuesSeq = gosecResult.issues.map { gosecIssue =>
+        gosecIssue.copy(file = relativizeTo.relativize(gosecIssue.file.toAbsolutePath))
+      }
+
+      gosecResult.copy(issues = issuesSeq)
+    }
   }
 
   def parseLine(line: String): Option[Int] = {
