@@ -58,7 +58,7 @@ func toCodacyPatterns(rules rules.RuleList) []codacy.Pattern {
 }
 
 func patternExtendedDescription(id string, description string) string {
-	return "##" + id + "\n" + description
+	return "## " + id + "\n" + description
 }
 
 func toCodacyPatternsDescription(rules rules.RuleList) []codacy.PatternDescription {

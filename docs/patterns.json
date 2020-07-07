@@ -1,0 +1,155 @@
+{
+  "name": "codacy-gosec",
+  "patterns": [
+    {
+      "patternId": "G204",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G304",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G402",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G108",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G110",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G201",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G504",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G306",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G401",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G502",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G503",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G103",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G404",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G501",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G203",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G302",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G305",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G101",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G106",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G109",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G301",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G303",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G102",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G202",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G601",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G104",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G107",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G505",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G307",
+      "category": "Security",
+      "level": "Error"
+    },
+    {
+      "patternId": "G403",
+      "category": "Security",
+      "level": "Error"
+    }
+  ]
+}
