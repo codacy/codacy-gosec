@@ -37,7 +37,8 @@ class GosecReportParserSpec extends AnyWordSpec with Matchers {
     }
 
     "fail when line not defined" in {
-      val result = GosecReportParser.fromJson(Seq(CommonTestMock.generateResultJsonText(line = "")), CommonTestMock.currentDir)
+      val result =
+        GosecReportParser.fromJson(Seq(CommonTestMock.generateResultJsonText(line = "")), CommonTestMock.currentDir)
       assertFailure(result)
     }
 

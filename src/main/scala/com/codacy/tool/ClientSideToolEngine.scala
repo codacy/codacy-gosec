@@ -3,6 +3,9 @@ package com.codacy.tool
 abstract class ClientSideToolEngine(toolName: String) extends IssuesAnalysisConverter {
 
   def main(args: Array[String]): Unit = {
-    run(this.toolName)
+    val exitStatus = ParserConfig.withConfig(toolName, args) { parserConfig =>
+      run(this.toolName, parserConfig)
+    }
+    sys.exit(exitStatus)
   }
 }
