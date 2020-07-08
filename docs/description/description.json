@@ -1,0 +1,302 @@
+[
+  {
+    "patternId": "G101",
+    "title": "G101",
+    "description": "Look for hardcoded credentials"
+  },
+  {
+    "patternId": "G102",
+    "title": "G102",
+    "description": "Bind to all interfaces"
+  },
+  {
+    "patternId": "G103",
+    "title": "G103",
+    "description": "Audit the use of unsafe block"
+  },
+  {
+    "patternId": "G104",
+    "title": "G104",
+    "description": "Audit errors not checked"
+  },
+  {
+    "patternId": "G106",
+    "title": "G106",
+    "description": "Audit the use of ssh.InsecureIgnoreHostKey function"
+  },
+  {
+    "patternId": "G107",
+    "title": "G107",
+    "description": "Url provided to HTTP request as taint input"
+  },
+  {
+    "patternId": "G108",
+    "title": "G108",
+    "description": "Profiling endpoint is automatically exposed"
+  },
+  {
+    "patternId": "G109",
+    "title": "G109",
+    "description": "Converting strconv.Atoi result to int32/int16"
+  },
+  {
+    "patternId": "G110",
+    "title": "G110",
+    "description": "Detect io.Copy instead of io.CopyN when decompression"
+  },
+  {
+    "patternId": "G201",
+    "title": "G201",
+    "description": "SQL query construction using format string"
+  },
+  {
+    "patternId": "G202",
+    "title": "G202",
+    "description": "SQL query construction using string concatenation"
+  },
+  {
+    "patternId": "G203",
+    "title": "G203",
+    "description": "Use of unescaped data in HTML templates"
+  },
+  {
+    "patternId": "G204",
+    "title": "G204",
+    "description": "Audit use of command execution"
+  },
+  {
+    "patternId": "G301",
+    "title": "G301",
+    "description": "Poor file permissions used when creating a directory"
+  },
+  {
+    "patternId": "G302",
+    "title": "G302",
+    "description": "Poor file permissions used when creation file or using chmod"
+  },
+  {
+    "patternId": "G303",
+    "title": "G303",
+    "description": "Creating tempfile using a predictable path"
+  },
+  {
+    "patternId": "G304",
+    "title": "G304",
+    "description": "File path provided as taint input"
+  },
+  {
+    "patternId": "G305",
+    "title": "G305",
+    "description": "File path traversal when extracting zip archive"
+  },
+  {
+    "patternId": "G306",
+    "title": "G306",
+    "description": "Poor file permissions used when writing to a file"
+  },
+  {
+    "patternId": "G307",
+    "title": "G307",
+    "description": "Unsafe defer call of a method returning an error"
+  },
+  {
+    "patternId": "G401",
+    "title": "G401",
+    "description": "Detect the usage of DES, RC4, MD5 or SHA1"
+  },
+  {
+    "patternId": "G402",
+    "title": "G402",
+    "description": "Look for bad TLS connection settings"
+  },
+  {
+    "patternId": "G403",
+    "title": "G403",
+    "description": "Ensure minimum RSA key length of 2048 bits"
+  },
+  {
+    "patternId": "G404",
+    "title": "G404",
+    "description": "Insecure random number source (rand)"
+  },
+  {
+    "patternId": "G501",
+    "title": "G501",
+    "description": "Import blacklist: crypto/md5"
+  },
+  {
+    "patternId": "G502",
+    "title": "G502",
+    "description": "Import blacklist: crypto/des"
+  },
+  {
+    "patternId": "G503",
+    "title": "G503",
+    "description": "Import blacklist: crypto/rc4"
+  },
+  {
+    "patternId": "G504",
+    "title": "G504",
+    "description": "Import blacklist: net/http/cgi"
+  },
+  {
+    "patternId": "G505",
+    "title": "G505",
+    "description": "Import blacklist: crypto/sha1"
+  },
+  {
+    "patternId": "G601",
+    "title": "G601",
+    "description": "Implicit memory aliasing in RangeStmt"
+  },
+  {
+    "patternId": "G101",
+    "title": "G101",
+    "description": "Look for hardcoded credentials"
+  },
+  {
+    "patternId": "G102",
+    "title": "G102",
+    "description": "Bind to all interfaces"
+  },
+  {
+    "patternId": "G103",
+    "title": "G103",
+    "description": "Audit the use of unsafe block"
+  },
+  {
+    "patternId": "G104",
+    "title": "G104",
+    "description": "Audit errors not checked"
+  },
+  {
+    "patternId": "G106",
+    "title": "G106",
+    "description": "Audit the use of ssh.InsecureIgnoreHostKey function"
+  },
+  {
+    "patternId": "G107",
+    "title": "G107",
+    "description": "Url provided to HTTP request as taint input"
+  },
+  {
+    "patternId": "G108",
+    "title": "G108",
+    "description": "Profiling endpoint is automatically exposed"
+  },
+  {
+    "patternId": "G109",
+    "title": "G109",
+    "description": "Converting strconv.Atoi result to int32/int16"
+  },
+  {
+    "patternId": "G110",
+    "title": "G110",
+    "description": "Detect io.Copy instead of io.CopyN when decompression"
+  },
+  {
+    "patternId": "G201",
+    "title": "G201",
+    "description": "SQL query construction using format string"
+  },
+  {
+    "patternId": "G202",
+    "title": "G202",
+    "description": "SQL query construction using string concatenation"
+  },
+  {
+    "patternId": "G203",
+    "title": "G203",
+    "description": "Use of unescaped data in HTML templates"
+  },
+  {
+    "patternId": "G204",
+    "title": "G204",
+    "description": "Audit use of command execution"
+  },
+  {
+    "patternId": "G301",
+    "title": "G301",
+    "description": "Poor file permissions used when creating a directory"
+  },
+  {
+    "patternId": "G302",
+    "title": "G302",
+    "description": "Poor file permissions used when creation file or using chmod"
+  },
+  {
+    "patternId": "G303",
+    "title": "G303",
+    "description": "Creating tempfile using a predictable path"
+  },
+  {
+    "patternId": "G304",
+    "title": "G304",
+    "description": "File path provided as taint input"
+  },
+  {
+    "patternId": "G305",
+    "title": "G305",
+    "description": "File path traversal when extracting zip archive"
+  },
+  {
+    "patternId": "G306",
+    "title": "G306",
+    "description": "Poor file permissions used when writing to a file"
+  },
+  {
+    "patternId": "G307",
+    "title": "G307",
+    "description": "Unsafe defer call of a method returning an error"
+  },
+  {
+    "patternId": "G401",
+    "title": "G401",
+    "description": "Detect the usage of DES, RC4, MD5 or SHA1"
+  },
+  {
+    "patternId": "G402",
+    "title": "G402",
+    "description": "Look for bad TLS connection settings"
+  },
+  {
+    "patternId": "G403",
+    "title": "G403",
+    "description": "Ensure minimum RSA key length of 2048 bits"
+  },
+  {
+    "patternId": "G404",
+    "title": "G404",
+    "description": "Insecure random number source (rand)"
+  },
+  {
+    "patternId": "G501",
+    "title": "G501",
+    "description": "Import blacklist: crypto/md5"
+  },
+  {
+    "patternId": "G502",
+    "title": "G502",
+    "description": "Import blacklist: crypto/des"
+  },
+  {
+    "patternId": "G503",
+    "title": "G503",
+    "description": "Import blacklist: crypto/rc4"
+  },
+  {
+    "patternId": "G504",
+    "title": "G504",
+    "description": "Import blacklist: net/http/cgi"
+  },
+  {
+    "patternId": "G505",
+    "title": "G505",
+    "description": "Import blacklist: crypto/sha1"
+  },
+  {
+    "patternId": "G601",
+    "title": "G601",
+    "description": "Implicit memory aliasing in RangeStmt"
+  }
+]

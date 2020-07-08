@@ -7,7 +7,11 @@ import com.codacy.analysis.core.model.{FullLocation, Issue}
 import com.codacy.plugins.api.results
 
 object CommonTestMock {
-  val filePath: Path = Paths.get("main.go")
+  val currentDir = Paths.get(System.getProperty("user.dir"))
+  val filename = "main.go"
+  val fileNamePath = Paths.get(filename)
+
+  val filePath: Path = Paths.get(currentDir.toAbsolutePath.toString, filename)
   val patternId = "G104"
   val severity = "LOW"
   val confidence = "HIGH"
@@ -25,7 +29,7 @@ object CommonTestMock {
         confidence,
         patternId,
         details,
-        filePath,
+        fileNamePath,
         GosecReportParser.parseLine(codeLine).getOrElse(throw new Exception("error parsing code line")),
         codeColumn.toInt
       )
@@ -33,11 +37,11 @@ object CommonTestMock {
   )
 
   val fileResults: FileResults = FileResults(
-    filePath,
+    fileNamePath,
     Set(
       Issue(
         results.Pattern.Id(patternId),
-        filePath,
+        fileNamePath,
         Issue.Message(details),
         results.Result.Level.Info,
         None,
@@ -68,7 +72,7 @@ object CommonTestMock {
        |            },
        |            "rule_id": "$patternId",
        |            "details": "$details",
-       |            "file": "${filePath.toString}",
+       |            "file": "${fileNamePath.toString}",
        |            "code": "$code",
        |            "line": "$line",
        |            "column": "$codeColumn"

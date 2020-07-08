@@ -5,8 +5,6 @@ import java.nio.file.{Path, Paths}
 import io.circe.parser.decode
 import io.circe.{Decoder, DecodingFailure, HCursor}
 
-import scala.util.{Failure, Success, Try}
-
 object GosecReportParser {
   private[GosecReportParser] implicit val gosecResultDecoder: Decoder[GosecResult] = (c: HCursor) =>
     for {
@@ -27,12 +25,20 @@ object GosecReportParser {
 
       column <- c.downField("column").as[Int]
 
-    } yield GosecIssue(severity, confidence, ruleId, details, relativizeToWorkdir(file), line, column)
+    } yield GosecIssue(severity, confidence, ruleId, details, Paths.get(file), line, column)
 
-  def fromJson(lines: Seq[String]): Either[io.circe.Error, GosecResult] = {
+  def fromJson(lines: Seq[String], relativizeTo: Path): Either[io.circe.Error, GosecResult] = {
     val entireJson = lines.mkString("")
 
-    decode[GosecResult](entireJson)
+    val resultEither = decode[GosecResult](entireJson)
+
+    resultEither.map { gosecResult =>
+      val issuesSeq = gosecResult.issues.map { gosecIssue =>
+        gosecIssue.copy(file = relativizeTo.relativize(gosecIssue.file.toAbsolutePath))
+      }
+
+      gosecResult.copy(issues = issuesSeq)
+    }
   }
 
   def parseLine(line: String): Option[Int] = {
@@ -40,13 +46,5 @@ object GosecReportParser {
       .split("-")
       .headOption
       .flatMap(s => s.toIntOption)
-  }
-
-  private def relativizeToWorkdir(filepath: String): Path = {
-    val currentPath = Paths.get(System.getProperty("user.dir"))
-    Try(currentPath.relativize(Paths.get(filepath))) match {
-      case Success(path) => path
-      case Failure(_) => Paths.get(filepath)
-    }
   }
 }

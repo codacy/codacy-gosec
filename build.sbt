@@ -15,6 +15,7 @@ lazy val root = (project in file("."))
       "com.codacy" %% "codacy-analysis-cli-model" % "2.2.0",
       "io.circe" %% "circe-core" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
+      "com.github.scopt" %% "scopt" % "3.7.1",
       "org.scalatest" %% "scalatest" % "3.1.0" % Test
     ),
     graalVMNativeImageGraalVersion := Some(graalVersion),

@@ -1,18 +1,17 @@
 package com.codacy.gosec
 
 import com.codacy.analysis.core.model.IssuesAnalysis
-import com.codacy.analysis.core.model.IssuesAnalysis.{Failure, FileResults, Success}
+import com.codacy.analysis.core.model.IssuesAnalysis.{Failure, Success}
 import org.scalatest.PrivateMethodTester
 import org.scalatest.matchers.must.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
 class GosecSpec extends AnyWordSpec with Matchers with PrivateMethodTester {
-  val gosecReportToFileResults = PrivateMethod[Set[FileResults]](Symbol("gosecReportToFileResults"))
   val gosecReportToIssuesAnalysis = PrivateMethod[IssuesAnalysis](Symbol("gosecReportToIssuesAnalysis"))
 
   "GoSec" should {
     "parse correctly" in {
-      val result = Gosec.convert(Seq(CommonTestMock.resultJsonText))
+      val result = Gosec.convert(Seq(CommonTestMock.resultJsonText), CommonTestMock.currentDir)
 
       val expectedResult = Success(Set(CommonTestMock.fileResults))
 
@@ -21,7 +20,7 @@ class GosecSpec extends AnyWordSpec with Matchers with PrivateMethodTester {
 
     "fail when invalid format given" in {
       val text = Seq("""<test><xmlformat></xmlformat></test>""")
-      val result = Gosec.convert(text)
+      val result = Gosec.convert(text, CommonTestMock.currentDir)
 
       result mustBe a[Failure]
     }
@@ -35,15 +34,15 @@ class GosecSpec extends AnyWordSpec with Matchers with PrivateMethodTester {
                          |    ]
                          |}""".stripMargin)
 
-      val result = Gosec.convert(lines)
+      val result = Gosec.convert(lines, CommonTestMock.currentDir)
 
       result mustBe a[Failure]
     }
 
     "convert gosec report into codacy file results report" in {
-      val fileResults = Gosec invokePrivate gosecReportToFileResults(CommonTestMock.resultAsGosecResult)
+      val fileResults = Gosec invokePrivate gosecReportToIssuesAnalysis(CommonTestMock.resultAsGosecResult)
 
-      fileResults mustEqual Set(CommonTestMock.fileResults)
+      fileResults mustEqual Success(Set(CommonTestMock.fileResults))
     }
 
     "return success" in {
