@@ -17,9 +17,9 @@ case class GosecIssue(
     column: Int
 ) {
 
-  def toCodacyIssue: Issue = {
+  def toCodacyIssue(toolName: String): Issue = {
     Issue(
-      results.Pattern.Id(ruleId),
+      results.Pattern.Id(s"${toolName}_$ruleId"),
       file,
       Issue.Message(details),
       convertLevel(severity),

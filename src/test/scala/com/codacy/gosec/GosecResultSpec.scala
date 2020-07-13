@@ -10,9 +10,9 @@ class GosecResultSpec extends AnyWordSpec with Matchers {
   "GosecIssue" should {
     "be converted into Issue correctly" in {
       val gosecIssue = GosecIssue("LOW", "HIGH", "TestId", "", Paths.get("test.go"), 1, 2)
-      val issue = gosecIssue.toCodacyIssue
+      val issue = gosecIssue.toCodacyIssue("gosec")
 
-      issue.patternId.value mustEqual "TestId"
+      issue.patternId.value mustEqual "gosec_TestId"
       issue.level mustEqual results.Result.Level.Info
     }
   }
