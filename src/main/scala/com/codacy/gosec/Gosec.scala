@@ -14,7 +14,7 @@ object Gosec extends ClientSideToolEngine(toolName = "gosec") {
       .view
       .map {
         case (path, res) =>
-          FileResults(path, res.view.map(_.toCodacyIssue).toSet)
+          FileResults(path, res.view.map(_.toCodacyIssue(toolName)).toSet)
       }
       .to(Set)
 

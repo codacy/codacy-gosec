@@ -13,6 +13,7 @@ object CommonTestMock {
 
   val filePath: Path = Paths.get(currentDir.toAbsolutePath.toString, filename)
   val patternId = "G104"
+  val resultPatternId = s"gosec_$patternId"
   val severity = "LOW"
   val confidence = "HIGH"
   val details = "Errors unhandled."
@@ -40,7 +41,7 @@ object CommonTestMock {
     fileNamePath,
     Set(
       Issue(
-        results.Pattern.Id(patternId),
+        results.Pattern.Id(resultPatternId),
         fileNamePath,
         Issue.Message(details),
         results.Result.Level.Info,
