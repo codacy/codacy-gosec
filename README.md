@@ -30,11 +30,11 @@ export COMMIT="COMMIT-UUID"
 
 gosec -fmt json -log log.txt ./... | \
 ./codacy-gosec-"<version>" | \
-curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
+curl -XPOST -L -H "project-token: $PROJECT_TOKEN"
     -H "Content-type: application/json" -d @- \
     "https://api.codacy.com/2.0/commit/$COMMIT/issuesRemoteResults"
 
-curl -XPOST -L -H "project_token: $PROJECT_TOKEN" \
+curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
 	-H "Content-type: application/json" \
 	"https://api.codacy.com/2.0/commit/$COMMIT/resultsFinal"
 ```
@@ -48,11 +48,11 @@ export CODACY_URL="CODACY-INSTALLATION-URL"
 
 gosec -fmt json -log log.txt ./... | \
 ./codacy-gosec-"<version>" | \
-curl -XPOST -L -H "project_token: $PROJECT_TOKEN"
+curl -XPOST -L -H "project-token: $PROJECT_TOKEN"
     -H "Content-type: application/json" -d @- \
     "$CODACY_URL/2.0/commit/$COMMIT/issuesRemoteResults"
 
-curl -XPOST -L -H "project_token: $PROJECT_TOKEN" \
+curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
 	-H "Content-type: application/json" \
 	"$CODACY_URL/2.0/commit/$COMMIT/resultsFinal"
 ```
