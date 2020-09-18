@@ -30,7 +30,7 @@ export COMMIT="COMMIT-UUID"
 
 gosec -fmt json -log log.txt ./... | \
 ./codacy-gosec-"<version>" | \
-curl -XPOST -L -H "project-token: $PROJECT_TOKEN"
+curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
     -H "Content-type: application/json" -d @- \
     "https://api.codacy.com/2.0/commit/$COMMIT/issuesRemoteResults"
 
