@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	toolName = "codacy-gosec"
+	toolName = "gosec"
 )
 
 var docFolder string

@@ -1,5 +1,5 @@
 {
-  "name": "codacy-gosec",
+  "name": "gosec",
   "version": "v2.3.0",
   "patterns": [
     {
