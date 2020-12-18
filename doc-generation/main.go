@@ -9,6 +9,7 @@ import (
 	"os"
 	"path"
 	"sort"
+	"strings"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"golang.org/x/mod/modfile"
@@ -64,7 +65,7 @@ func gosecVersion() (string, error) {
 	file, err := modfile.Parse(goModFilename, goMod, nil)
 	for _, r := range file.Require {
 		if r.Mod.Path == gosecDependency {
-			return r.Mod.Version, nil
+			return strings.TrimPrefix(r.Mod.Version, "v"), nil
 		}
 	}
 	return "", errors.New("Gosec not found")
