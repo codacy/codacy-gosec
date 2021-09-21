@@ -122,27 +122,27 @@
   {
     "patternId": "G501",
     "title": "G501",
-    "description": "Import blacklist: crypto/md5"
+    "description": "Import blocklist: crypto/md5"
   },
   {
     "patternId": "G502",
     "title": "G502",
-    "description": "Import blacklist: crypto/des"
+    "description": "Import blocklist: crypto/des"
   },
   {
     "patternId": "G503",
     "title": "G503",
-    "description": "Import blacklist: crypto/rc4"
+    "description": "Import blocklist: crypto/rc4"
   },
   {
     "patternId": "G504",
     "title": "G504",
-    "description": "Import blacklist: net/http/cgi"
+    "description": "Import blocklist: net/http/cgi"
   },
   {
     "patternId": "G505",
     "title": "G505",
-    "description": "Import blacklist: crypto/sha1"
+    "description": "Import blocklist: crypto/sha1"
   },
   {
     "patternId": "G601",
@@ -272,27 +272,27 @@
   {
     "patternId": "G501",
     "title": "G501",
-    "description": "Import blacklist: crypto/md5"
+    "description": "Import blocklist: crypto/md5"
   },
   {
     "patternId": "G502",
     "title": "G502",
-    "description": "Import blacklist: crypto/des"
+    "description": "Import blocklist: crypto/des"
   },
   {
     "patternId": "G503",
     "title": "G503",
-    "description": "Import blacklist: crypto/rc4"
+    "description": "Import blocklist: crypto/rc4"
   },
   {
     "patternId": "G504",
     "title": "G504",
-    "description": "Import blacklist: net/http/cgi"
+    "description": "Import blocklist: net/http/cgi"
   },
   {
     "patternId": "G505",
     "title": "G505",
-    "description": "Import blacklist: crypto/sha1"
+    "description": "Import blocklist: crypto/sha1"
   },
   {
     "patternId": "G601",
