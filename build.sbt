@@ -1,6 +1,6 @@
 val scalaVersionNumber = "2.13.1"
 val circeVersion = "0.12.3"
-val graalVersion = "19.3.1-java11"
+val graalVersion = "21.2.0"
 
 lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
@@ -19,13 +19,10 @@ lazy val root = (project in file("."))
       "org.scalatest" %% "scalatest" % "3.1.0" % Test
     ),
     graalVMNativeImageGraalVersion := Some(graalVersion),
-    containerBuildImage := Some(s"oracle/graalvm-ce:$graalVersion"),
     graalVMNativeImageOptions ++= Seq(
       "-O1",
       "-H:+ReportExceptionStackTraces",
       "--no-fallback",
-      "--no-server",
-      "--initialize-at-build-time",
       "--report-unsupported-elements-at-runtime",
       "--static"
     )
