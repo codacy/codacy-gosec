@@ -11,7 +11,7 @@ A standalone tool that converts gosec results to Codacy's format. It allows the 
 
 2.  Converts gosec result into Codacy's format
 
-3.  Prints Codacy's format to stdout 
+3.  Prints Codacy's format to stdout
 
 > NOTE: the tool must be run in the project root folder.
 
@@ -24,6 +24,7 @@ To get your gosec results into Codacy you'll need to:
 -   Enable the setting “Run analysis through build server” under your repository Settings > General > Repository analysis
 -   Obtain a [project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)
 -   Install [gosec](https://github.com/securego/gosec#install)
+-   Download the `codacy-gosec` binary (or Java jar) from [the releases page](https://github.com/codacy/codacy-gosec/tags)
 
 
 ### Sending the results to Codacy
@@ -31,7 +32,7 @@ To get your gosec results into Codacy you'll need to:
 Sending the results of running gosec to Codacy involves the steps below, which you can automate in your CI build process:
 
 1.  Run gosec
-2.  Convert the gosec output to a format that the Codacy API accepts
+2.  Convert the gosec output to a format that the Codacy API accepts using the [codacy-gosec](https://github.com/codacy/codacy-gosec/tags) binary
 3.  Send the results to Codacy
 4.  Finally, signal that Codacy can use the sent results and start a new analysis
 
