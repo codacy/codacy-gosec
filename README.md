@@ -21,7 +21,8 @@ A standalone tool that converts gosec results to Codacy's format. It allows the 
 
 To get your gosec results into Codacy you'll need to:
 
--   Enable the setting “Run analysis through build server” under your repository Settings > General > Repository analysis
+-   Enable Gosec on your repository **Code patterns** page
+-   Enable the setting **Run analysis through build server** on your repository **Settings**, tab **General**, **Repository analysis**
 -   Obtain a [project API token](https://docs.codacy.com/codacy-api/api-tokens/#project-api-tokens)
 -   Install [gosec](https://github.com/securego/gosec#install)
 -   Download the `codacy-gosec` binary (or Java jar) from [the releases page](https://github.com/codacy/codacy-gosec/releases)
