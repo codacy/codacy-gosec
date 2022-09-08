@@ -1,6 +1,6 @@
 {
   "name": "gosec",
-  "version": "2.8.1",
+  "version": "2.13.1",
   "patterns": [
     {
       "patternId": "G101",
