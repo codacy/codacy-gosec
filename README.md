@@ -37,6 +37,8 @@ Sending the results of running gosec to Codacy involves the steps below, which y
 3.  Send the results to Codacy
 4.  Finally, signal that Codacy can use the sent results and start a new analysis
 
+> When the option **“Run analysis through build server”** is enabled, the Codacy analysis will not start until you call the endpoint `/2.0/commit/{commitUuid}/resultsFinal` signalling that Codacy can use the sent results and start a new analysis.
+
 ```bash
 export PROJECT_TOKEN="YOUR-TOKEN"
 export COMMIT="COMMIT-UUID"
