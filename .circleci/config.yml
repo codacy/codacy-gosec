@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@7.0.0
+  codacy: codacy/base@10.1.0
 
 workflows:
   version: 2
@@ -72,5 +72,16 @@ workflows:
               only:
                 - master
           context: CodacyGitHub
+          requires:
+            - package_artifacts
+      - codacy/publish_s3:
+          name: publish_s3
+          path: bin/codacy-gosec
+          files: artifacts/codacy-gosec-$(cat .version) artifacts/codacy-gosec-$(cat .version).jar
+          filters:
+            branches:
+              only:
+                - master
+          context: CodacyAWS
           requires:
             - package_artifacts
