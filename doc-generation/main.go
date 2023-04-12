@@ -72,7 +72,7 @@ func gosecVersion() (string, error) {
 }
 
 func listGosecRules() []rules.RuleDefinition {
-	rulesMap := rules.Generate()
+	rulesMap := rules.Generate(false).Rules
 
 	var rulesList []rules.RuleDefinition
 	for _, ruleDefinition := range rulesMap {

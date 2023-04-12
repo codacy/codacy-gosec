@@ -45,6 +45,26 @@
     "description": "Detect io.Copy instead of io.CopyN when decompression"
   },
   {
+    "patternId": "G111",
+    "title": "G111",
+    "description": "Detect http.Dir('/') as a potential risk"
+  },
+  {
+    "patternId": "G112",
+    "title": "G112",
+    "description": "Detect ReadHeaderTimeout not configured as a potential risk"
+  },
+  {
+    "patternId": "G113",
+    "title": "G113",
+    "description": "Usage of Rat.SetString in math/big with an overflow"
+  },
+  {
+    "patternId": "G114",
+    "title": "G114",
+    "description": "Use of net/http serve function that has no support for setting timeouts"
+  },
+  {
     "patternId": "G201",
     "title": "G201",
     "description": "SQL query construction using format string"
@@ -193,6 +213,26 @@
     "patternId": "G110",
     "title": "G110",
     "description": "Detect io.Copy instead of io.CopyN when decompression"
+  },
+  {
+    "patternId": "G111",
+    "title": "G111",
+    "description": "Detect http.Dir('/') as a potential risk"
+  },
+  {
+    "patternId": "G112",
+    "title": "G112",
+    "description": "Detect ReadHeaderTimeout not configured as a potential risk"
+  },
+  {
+    "patternId": "G113",
+    "title": "G113",
+    "description": "Usage of Rat.SetString in math/big with an overflow"
+  },
+  {
+    "patternId": "G114",
+    "title": "G114",
+    "description": "Use of net/http serve function that has no support for setting timeouts"
   },
   {
     "patternId": "G201",

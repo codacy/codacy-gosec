@@ -1,4 +1,4 @@
-FROM golang:1.18.8-alpine3.17 as builder
+FROM golang:1.18.10-alpine3.17 as builder
 
 COPY doc-generation /doc-generation
 
