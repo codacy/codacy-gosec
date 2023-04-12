@@ -44,10 +44,6 @@ workflows:
             mkdir -p ~/workdir/artifacts/
             mv target/scala-2.13/codacy-gosec-assembly-$(cat .version).jar ~/workdir/artifacts/codacy-gosec-$(cat .version).jar
             mv target/graalvm-native-image/codacy-gosec ~/workdir/artifacts/codacy-gosec-$(cat .version)
-          filters:
-            branches:
-              only:
-                - master
           requires:
             - check_fmt
             - test_and_coverage
@@ -64,6 +60,10 @@ workflows:
           context: CodacyAWS
           requires:
             - docker_publish_local
+          filters:
+            branches:
+              only:
+                - master
       - codacy/publish_ghr:
           name: publish_ghr
           path: ~/workdir/artifacts/
