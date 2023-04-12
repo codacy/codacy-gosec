@@ -1,156 +1,210 @@
 {
   "name": "gosec",
-  "version": "2.8.1",
+  "version": "2.15.0",
   "patterns": [
     {
       "patternId": "G101",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G102",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G103",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G104",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G106",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G107",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G108",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G109",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G110",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G111",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G112",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G113",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G114",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G201",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G202",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G203",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G204",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G301",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G302",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G303",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G304",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G305",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G306",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G307",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G401",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G402",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G403",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G404",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G501",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G502",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G503",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G504",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G505",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     },
     {
       "patternId": "G601",
       "category": "Security",
-      "level": "Error"
+      "level": "Error",
+      "enabled": false
     }
   ]
 }
