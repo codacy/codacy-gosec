@@ -7,4 +7,4 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.3.1")
 
 addSbtPlugin("com.github.sbt" % "sbt-native-packager" % "1.11.1")
 
-addSbtPlugin("ohnosequences" % "ivy-s3-resolver" % "0.13.0")
+addSbtPlugin("com.frugalmechanic" % "fm-sbt-s3-resolver" % "0.21.0")

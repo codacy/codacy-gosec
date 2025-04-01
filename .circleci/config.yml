@@ -12,7 +12,7 @@ workflows:
       - codacy/sbt:
           name: populate_cache
           persist_to_workspace: true
-          cmd: sbt "set scalafmtUseIvy in ThisBuild := false;update"
+          cmd: sbt "set ThisBuild / scalafmtUseIvy := false; update"
           requires:
             - codacy/checkout_and_version
       - codacy/sbt:
