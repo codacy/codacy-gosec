@@ -11,7 +11,7 @@ import (
 	"sort"
 	"strings"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 	"golang.org/x/mod/modfile"
 
 	"github.com/securego/gosec/v2/rules"
@@ -57,7 +57,7 @@ func gosecVersion() (string, error) {
 	goModFilename := "go.mod"
 	gosecDependency := "github.com/securego/gosec/v2"
 
-	goMod, err := ioutil.ReadFile(goModFilename)
+	goMod, err := os.ReadFile(goModFilename)
 	if err != nil {
 		return "", err
 	}
@@ -90,9 +90,10 @@ func toCodacyPatterns(rules []rules.RuleDefinition) []codacy.Pattern {
 
 	for _, value := range rules {
 		codacyPatterns = append(codacyPatterns, codacy.Pattern{
-			PatternID: value.ID,
-			Category:  "Security",
-			Level:     "Error",
+			ID:       value.ID,
+			Category: "Security",
+			Level:    "Error",
+			ScanType: "SAST",
 		})
 	}
 	return codacyPatterns
@@ -122,7 +123,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) error
 	tool := codacy.ToolDefinition{
 		Name:     toolName,
 		Version:  toolVersion,
-		Patterns: patterns,
+		Patterns: &patterns,
 	}
 
 	toolAsJSON, err := json.MarshalIndent(tool, "", "  ")
