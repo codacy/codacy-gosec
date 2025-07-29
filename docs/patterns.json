@@ -1,6 +1,6 @@
 {
   "name": "gosec",
-  "version": "2.15.0",
+  "version": "2.22.7",
   "patterns": [
     {
       "patternId": "G101",
@@ -64,12 +64,6 @@
     },
     {
       "patternId": "G112",
-      "category": "Security",
-      "level": "Error",
-      "enabled": false
-    },
-    {
-      "patternId": "G113",
       "category": "Security",
       "level": "Error",
       "enabled": false
@@ -171,6 +165,18 @@
       "enabled": false
     },
     {
+      "patternId": "G405",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G406",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
       "patternId": "G501",
       "category": "Security",
       "level": "Error",
@@ -196,6 +202,18 @@
     },
     {
       "patternId": "G505",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G506",
+      "category": "Security",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G507",
       "category": "Security",
       "level": "Error",
       "enabled": false

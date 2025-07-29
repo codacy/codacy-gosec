@@ -1,6 +1,6 @@
-val scalaVersionNumber = "2.13.1"
+val scalaVersionNumber = "2.13.16"
 val circeVersion = "0.12.3"
-val graalVersion = "21.2.0"
+val graalVersion = "24.2.2"
 
 lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
@@ -12,11 +12,11 @@ lazy val root = (project in file("."))
     scalaVersion := scalaVersionNumber,
     test in assembly := {},
     libraryDependencies ++= Seq(
-      "com.codacy" %% "codacy-analysis-cli-model" % "2.2.0",
+      "com.codacy" %% "codacy-analysis-cli-model" % "5.2.1",
       "io.circe" %% "circe-core" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
-      "com.github.scopt" %% "scopt" % "3.7.1",
-      "org.scalatest" %% "scalatest" % "3.1.0" % Test
+      "com.github.scopt" %% "scopt" % "4.1.0",
+      "org.scalatest" %% "scalatest" % "3.2.19" % Test
     ),
     graalVMNativeImageGraalVersion := Some(graalVersion),
     graalVMNativeImageOptions ++= Seq(
