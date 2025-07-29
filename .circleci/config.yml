@@ -12,7 +12,7 @@ workflows:
       - codacy/sbt:
           name: populate_cache
           persist_to_workspace: true
-          md: |
+          cmd: |
             sbt "clean;
                  scalafmtCheckAll;
                  Test / scalafmtCheck;
