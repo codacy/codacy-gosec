@@ -1,6 +1,6 @@
 val scalaVersionNumber = "2.13.16"
 val circeVersion = "0.12.3"
-val graalVersion = "24.2.2"
+val graalVersion = "22.3.3"
 
 lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
