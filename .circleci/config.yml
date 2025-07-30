@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@10.2.2
+  codacy: codacy/base@12.2.0
 
 workflows:
   version: 2
@@ -12,12 +12,16 @@ workflows:
       - codacy/sbt:
           name: populate_cache
           persist_to_workspace: true
-          cmd: sbt "set scalafmtUseIvy in ThisBuild := false;update"
+          cmd: |
+            sbt "clean;
+                 scalafmtCheckAll;
+                 Test / scalafmtCheck;
+                 scalafmtCheck;"
           requires:
             - codacy/checkout_and_version
       - codacy/sbt:
           name: check_fmt
-          cmd: sbt "scalafmt::test;test:scalafmt::test;sbt:scalafmt::test"
+          cmd: sbt test:scalafmt scalafmt scalafmtSbt
           requires:
             - populate_cache
       - codacy/sbt:

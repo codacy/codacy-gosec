@@ -9,3 +9,9 @@ target/
 .DS_Store
 *.iml
 .codacy-coverage
+
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md
+
+.vscode

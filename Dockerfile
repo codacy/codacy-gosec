@@ -1,4 +1,4 @@
-FROM golang:1.18.10-alpine3.17 as builder
+FROM golang:1.23-alpine3.22 as builder
 
 COPY doc-generation /doc-generation
 
@@ -6,7 +6,7 @@ WORKDIR /doc-generation
 RUN mkdir -p /docs/description
 RUN go run main.go -docFolder=../docs
 
-FROM alpine:3.17.3
+FROM alpine:3.22
 
 COPY --from=builder /docs /docs
 COPY docs/tool-description.md /docs/
