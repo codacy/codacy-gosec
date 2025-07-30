@@ -42,12 +42,12 @@ workflows:
           name: package_artifacts
           persist_to_workspace: true
           cmd: |
-            sbt -debug "assembly"
-            sbt clean "graalvm-native-image:packageBin"
-
+            sbt clean "graalvm-native-image:packageBin" "assembly"
+            ls target/scala-2.13
             mkdir -p ~/workdir/artifacts/
             mv target/scala-2.13/codacy-gosec-assembly-$(cat .version).jar ~/workdir/artifacts/codacy-gosec-$(cat .version).jar
             mv target/graalvm-native-image/codacy-gosec ~/workdir/artifacts/codacy-gosec-$(cat .version)
+            ls ~/workdir/artifacts/
           requires:
             - check_fmt
             - test_and_coverage
