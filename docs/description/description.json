@@ -60,6 +60,16 @@
     "description": "Use of net/http serve function that has no support for setting timeouts"
   },
   {
+    "patternId": "G116",
+    "title": "G116",
+    "description": "Detect Trojan Source attacks using bidirectional Unicode characters"
+  },
+  {
+    "patternId": "G117",
+    "title": "G117",
+    "description": "Potential exposure of secrets via JSON/YAML/XML/TOML marshaling"
+  },
+  {
     "patternId": "G201",
     "title": "G201",
     "description": "SQL query construction using format string"
@@ -243,6 +253,16 @@
     "patternId": "G114",
     "title": "G114",
     "description": "Use of net/http serve function that has no support for setting timeouts"
+  },
+  {
+    "patternId": "G116",
+    "title": "G116",
+    "description": "Detect Trojan Source attacks using bidirectional Unicode characters"
+  },
+  {
+    "patternId": "G117",
+    "title": "G117",
+    "description": "Potential exposure of secrets via JSON/YAML/XML/TOML marshaling"
   },
   {
     "patternId": "G201",
