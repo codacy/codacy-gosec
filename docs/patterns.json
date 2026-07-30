@@ -1,6 +1,6 @@
 {
   "name": "gosec",
-  "version": "2.22.7",
+  "version": "2.28.0",
   "patterns": [
     {
       "patternId": "G101",
@@ -81,6 +81,20 @@
     },
     {
       "patternId": "G114",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G116",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "G117",
       "category": "Security",
       "scanType": "SAST",
       "level": "Error",

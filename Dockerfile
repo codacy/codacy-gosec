@@ -1,9 +1,10 @@
-FROM golang:1.23-alpine3.22 as builder
+FROM golang:1.25-alpine3.22 as builder
 
 COPY doc-generation /doc-generation
 
 WORKDIR /doc-generation
 RUN mkdir -p /docs/description
+ENV GOTOOLCHAIN=auto
 RUN go run main.go -docFolder=../docs
 
 FROM alpine:3.22
