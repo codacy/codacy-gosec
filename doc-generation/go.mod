@@ -1,6 +1,6 @@
 module github.com/codacy/gosec-doc-generator
 
-go 1.25.12
+go 1.25.8
 
 require (
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0
