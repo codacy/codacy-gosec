@@ -4,6 +4,7 @@ COPY doc-generation /doc-generation
 
 WORKDIR /doc-generation
 RUN mkdir -p /docs/description
+ENV GOTOOLCHAIN=auto
 RUN go run main.go -docFolder=../docs
 
 FROM alpine:3.22
