@@ -4,8 +4,8 @@ go 1.25.12
 
 require (
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0
-	github.com/securego/gosec/v2 v2.28.0
-	golang.org/x/mod v0.38.0
+	github.com/securego/gosec/v2 v2.29.0
+	golang.org/x/mod v0.40.0
 )
 
 require (
@@ -15,6 +15,6 @@ require (
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	golang.org/x/sync v0.22.0 // indirect
 	golang.org/x/sys v0.47.0 // indirect
-	golang.org/x/text v0.40.0 // indirect
-	golang.org/x/tools v0.48.0 // indirect
+	golang.org/x/text v0.41.0 // indirect
+	golang.org/x/tools v0.49.0 // indirect
 )
